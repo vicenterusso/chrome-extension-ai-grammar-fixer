@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Grammar Fixer",
+  "version": "1.0",
+  "description": "Fix grammar using AI on any selected text",
+
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "storage",
+    "notifications",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "*://*/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Grammar Fixer Settings"
+  }
+}
